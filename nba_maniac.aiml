@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<aiml>
+<!--author: Filson-->
+<!--licence: Standard-->
+<!--created with: GaitoBot AIML Editor V2.10.0.42867-->
+<category>
+	<pattern>HELLO*</pattern>
+	<template>Hi! Who are You? I'm Botgdan, an NBA maniac!</template>
+</category>
+<category>
+	<pattern>MY NAME IS *</pattern>
+	<template></template>
+</category>
+</aiml>
