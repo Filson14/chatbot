@@ -34,7 +34,7 @@
 		</random><condition name="teamsQuestion" value="true"><br />In the west, there were<br />Golden State Warriors,<br />San Antonio Spurs,<br />Houston Rockets,<br />Los Angeles Clippers,<br />Utah Jazz,<br />Oklahoma City Thunder,<br />Memphis Grizzlies,<br />Portlant Trail Blazers<think><set name="teamsQuestion">false</set></think></condition></template>
 </category>
 <category>
-	<pattern>WEST</pattern><that>What conference are you interested in?</that>
+	<pattern>WEST</pattern><that>*What conference are you interested in?</that>
 	<template><srai>TELL ME ABOUT THE WEST</srai></template>
 </category>
 <category>
@@ -48,6 +48,14 @@
 <category>
 	<pattern>WHAT IS IT</pattern>
 	<template>Playoffs are so called 'the postseason' part of the NBA season. After regular season (wich is 82 games for each team) 8 best teams from east and 8 from west advance to next phase. Regular season table determines pairs in the PO. Teams are playing to 4 wins. Winner advance to next round, loser can go fishing ;) </template>
+</category>
+<category>
+	<pattern>* ABOUT WEST_</pattern>
+	<template><srai>TELL ME ABOUT THE WEST</srai></template>
+</category>
+<category>
+	<pattern>* ABOUT EAST_</pattern>
+	<template><srai>TELL ME ABOUT THE EAST</srai></template>
 </category></topic><topic name="western">
 <category>
 	<pattern>*BLAZERS</pattern>
@@ -281,6 +289,7 @@
 			<li>I don't understand...</li>
 			<li>I can not 'hear' you ;)</li>
 			<li>I'm still learning. Try something else.</li>
+			<li>I don't get it. Do you want to talk about the playoffs?</li>
 		</random></template>
 </category>
 <category>
@@ -288,8 +297,24 @@
 	<template><srai>EAST</srai></template>
 </category>
 <category>
+	<pattern>* ABOUT PLAYOFFS</pattern>
+	<template><srai>PLAYOFFS</srai></template>
+</category>
+<category>
 	<pattern>* ABOUT WEST</pattern>
 	<template><srai>WEST</srai></template>
+</category>
+<category>
+	<pattern>* ABOUT YOU</pattern>
+	<template><srai>ABOUT YOU</srai></template>
+</category>
+<category>
+	<pattern>* BYE</pattern>
+	<template><srai>BYE</srai></template>
+</category>
+<category>
+	<pattern>* GO</pattern>
+	<template><srai>BYE</srai></template>
 </category>
 <category>
 	<pattern>*TALK ABOUT PLAYOFFS</pattern>
@@ -298,6 +323,20 @@
 <category>
 	<pattern>ABOUT YOU</pattern>
 	<template>I am Botgdan. NBA maniac chatbot. I'm here to talk about 2017 NBA Playoffs. If you want to know who advanced PO, who plays with whom etc - just ask. Do you want to talk about the playoffs?</template>
+</category>
+<category>
+	<pattern>BYE</pattern>
+	<template>
+		<random>
+			<li>Your'e leaving? That's a shame. CU!</li>
+			<li>Oooh, good bye.</li>
+			<li>Nice talk, see Ya.</li>
+			<li>That was a pleasure. Bye!</li>
+		</random></template>
+</category>
+<category>
+	<pattern>CU</pattern>
+	<template><srai>BYE</srai></template>
 </category>
 <category>
 	<pattern>EAST</pattern>
@@ -330,6 +369,14 @@
 	<template><srai>GREETINGS</srai></template>
 </category>
 <category>
+	<pattern>I DO NOT</pattern>
+	<template><srai>NO</srai></template>
+</category>
+<category>
+	<pattern>NAAH</pattern>
+	<template><srai>NO</srai></template>
+</category>
+<category>
 	<pattern>NO</pattern><that>* Do you want to talk about the playoffs?</that>
 	<template>
 		<random>
@@ -337,8 +384,16 @@
 		</random></template>
 </category>
 <category>
+	<pattern>NOPE</pattern>
+	<template><srai>NO</srai></template>
+</category>
+<category>
 	<pattern>PLAYOFFS</pattern>
 	<template><think><set name="topic">playoffs</set></think>Let's talk about playoffs!</template>
+</category>
+<category>
+	<pattern>SEE YOU</pattern>
+	<template><srai>BYE</srai></template>
 </category>
 <category>
 	<pattern>TELL ME SOMETHING ABOUT YOU</pattern>
@@ -360,7 +415,19 @@
 		</random><think><set name="topic">playoffs</set></think></template>
 </category>
 <category>
-	<pattern>* ABOUT PLAYOFFS</pattern>
-	<template><srai>PLAYOFFS</srai></template>
+	<pattern>YEP</pattern>
+	<template><srai>YES</srai></template>
+</category>
+<category>
+	<pattern>YEAH</pattern>
+	<template><srai>YES</srai></template>
+</category>
+<category>
+	<pattern>SURE</pattern>
+	<template><srai>YES</srai></template>
+</category>
+<category>
+	<pattern>I DO</pattern>
+	<template><srai>YES</srai></template>
 </category>
 </aiml>
