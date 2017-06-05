@@ -1,14 +1,128 @@
 <?xml version="1.0" encoding="ISO-8859-15"?>
+
 <aiml>
 <!--author: Filson-->
 <!--licence: Standard-->
-<!--created with: GaitoBot AIML Editor V2.10.0.42867-->
+<!--created with: GaitoBot AIML Editor V2.10.0.42867--><topic name="playoffs">
 <category>
-	<pattern>HELLO*</pattern>
-	<template>Hi! Who are You? I'm Botgdan, an NBA maniac!</template>
+	<pattern>EAST</pattern><that>What conference are you interested in?</that>
+	<template><srai>TELL ME ABOUT THE EAST</srai></template>
 </category>
 <category>
-	<pattern>MY NAME IS *</pattern>
-	<template></template>
+	<pattern>EASTERN</pattern><that>What conference are you interested in?</that>
+	<template><srai>EAST</srai></template>
+</category>
+<category>
+	<pattern>TELL ME ABOUT THE EAST</pattern>
+	<template><think><set name="topic">eastern</set></think>
+		<random>
+			<li>Let's talk about the east.</li>
+			<li>Eastern conference it is.</li>
+			<li>You want to talk about the east? Ok!</li>
+		</random><condition name="teamsQuestion" value="true"><br />In the east, there were<br />Boston Celtics,<br />Cleveland Cavaliers,<br />Toronto Raptors,<br />Washington Wizzards,<br />Atlanta Hawks,<br />Millwauke Bucks,<br />Indiana Pacers,<br />Chicago Bulls<think><set name="teamsQuestion">false</set></think></condition></template>
+</category>
+<category>
+	<pattern>TELL ME ABOUT THE WEST</pattern>
+	<template><think><set name="topic">western</set></think>
+		<random>
+			<li>Let's talk about the west.</li>
+			<li>Western conference it is.</li>
+			<li>You want to talk about the west? Ok!</li>
+		</random><condition name="teamsQuestion" value="true"><br />In the west, there were<br />Golden State Warriors,<br />San Antonio Spurs,<br />Houston Rockets,<br />Los Angeles Clippers,<br />Utah Jazz,<br />Oklahoma City Thunder,<br />Memphis Grizzlies,<br />Portlant Trail Blazers<think><set name="teamsQuestion">false</set></think></condition></template>
+</category>
+<category>
+	<pattern>WEST</pattern><that>What conference are you interested in?</that>
+	<template><srai>TELL ME ABOUT THE WEST</srai></template>
+</category>
+<category>
+	<pattern>WESTERN</pattern><that>What conference are you interested in?</that>
+	<template><srai>TELL ME ABOUT THE WEST</srai></template>
+</category>
+<category>
+	<pattern>WHO PLAYS IN THE PLAYOFFS</pattern>
+	<template><condition name="conference"><li exists="false">What conference are you interested in?<think><set name="teamsQuestion">true</set></think></li><li value="western">Golden State Warriors, San Antonio Spurs, Houston Rockets, Los Angeles Clippers, Utah Jazz, Oklahoma City Thunder, Memphis Grizzlies, Portlant Trail Blazers</li><li value="eastern">Boston Celtics, Cleveland Cavaliers, Toronto Raptors, Washington Wizzards, Atlanta Hawks, Millwauke Bucks, Indiana Pacers, Chicago Bulls</li></condition></template>
+</category></topic><topic name="western">
+<category>
+	<pattern>TEAMS</pattern>
+	<template>Golden State Warriors, San Antonio Spurs, Houston Rockets, Los Angeles Clippers, Utah Jazz, Oklahoma City Thunder, Memphis Grizzlies, Portlant Trail Blazers</template>
+</category></topic><topic name="eastern">
+<category>
+	<pattern>TEAMS</pattern>
+	<template>Boston Celtics, Cleveland Cavaliers, Toronto Raptors, Washington Wizzards, Atlanta Hawks, Millwauke Bucks, Indiana Pacers, Chicago Bulls</template>
+</category>
+<category>
+	<pattern>WHO PLAYS IN *</pattern>
+	<template><srai>TEAMS</srai></template>
+</category></topic>
+<category>
+	<pattern>* ABOUT EAST</pattern>
+	<template><srai>EAST</srai></template>
+</category>
+<category>
+	<pattern>* ABOUT WEST</pattern>
+	<template><srai>WEST</srai></template>
+</category>
+<category>
+	<pattern>ABOUT YOU</pattern>
+	<template>I am Botgdan. NBA maniac chatbot. I'm here to talk about 2017 NBA Playoffs. If you want to know who advanced PO, who plays with whom etc - just ask. Do you want to talk about the playoffs?</template>
+</category>
+<category>
+	<pattern>EAST</pattern>
+	<template>Let's talk about eastern conference.<think><set name="topic">eastern</set></think></template>
+</category>
+<category>
+	<pattern>GREETINGS</pattern>
+	<template><condition name="greetings" exists="true">
+		<random>
+			<li>We greeted once already.</li>
+			<li>Are you mocking me?</li>
+			<li>You have already did this.</li>
+			<li>I have already said 'Hi'.</li>
+		</random></condition><condition name="greetings" exists="false">
+		<random>
+			<li>Greetings! </li>
+			<li>Hi. I'm Botgdan. </li>   
+			<li>Hello. </li>   
+			<li>What's up? I'm Botgdan, an NBA maniac. </li>   
+			<li>Good day. </li>
+		</random><think><set name="greetings">true</set></think></condition></template>
+</category>
+<category>
+	<pattern>HELLO</pattern>
+	<template><srai>GREETINGS</srai></template>
+</category>
+<category>
+	<pattern>HI</pattern>
+	<template><srai>GREETINGS</srai></template>
+</category>
+<category>
+	<pattern>NO</pattern><that>* Do you want to talk about the playoffs?</that>
+	<template>
+		<random>
+			<li>That's a shame :(</li>
+		</random></template>
+</category>
+<category>
+	<pattern>PLAYOFFS</pattern>
+	<template><think><set name="topic">playoffs</set></think>Let's talk about playoffs!</template>
+</category>
+<category>
+	<pattern>TELL ME SOMETHING ABOUT YOU</pattern>
+	<template><srai>ABOUT YOU</srai></template>
+</category>
+<category>
+	<pattern>WEST</pattern>
+	<template>Let's talk about western conference.<think><set name="topic">western</set></think></template>
+</category>
+<category>
+	<pattern>WHO ARE YOU</pattern>
+	<template><srai>ABOUT YOU</srai></template>
+</category>
+<category>
+	<pattern>YES</pattern><that>* Do you want to talk about the playoffs?</that>
+	<template>
+		<random>
+			<li>Great. Let's do this.</li>
+		</random><think><set name="topic">playoffs</set></think></template>
 </category>
 </aiml>
