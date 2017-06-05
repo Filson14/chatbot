@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-15"?>
 
+
 <aiml>
 <!--author: Filson-->
 <!--licence: Standard-->
@@ -72,20 +73,20 @@
 </category>
 <category>
 	<pattern>GREETINGS</pattern>
-	<template><condition name="greetings" exists="true">
+	<template><condition name="greetings"><li exists="true">
 		<random>
 			<li>We greeted once already.</li>
 			<li>Are you mocking me?</li>
 			<li>You have already did this.</li>
 			<li>I have already said 'Hi'.</li>
-		</random></condition><condition name="greetings" exists="false">
+		</random></li><li exists="false">
 		<random>
 			<li>Greetings! </li>
-			<li>Hi. I'm Botgdan. </li>   
-			<li>Hello. </li>   
-			<li>What's up? I'm Botgdan, an NBA maniac. </li>   
+			<li>Hi. I'm Botgdan. </li> 
+			<li>Hello. </li> 
+			<li>What's up? I'm Botgdan, an NBA maniac. </li> 
 			<li>Good day. </li>
-		</random><think><set name="greetings">true</set></think></condition></template>
+		</random><think><set name="greetings">true</set></think></li></condition></template>
 </category>
 <category>
 	<pattern>HELLO</pattern>
