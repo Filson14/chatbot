@@ -2,6 +2,7 @@
 
 
 
+
 <aiml>
 <!--author: Filson-->
 <!--licence: Standard-->
@@ -49,8 +50,114 @@
 	<template>Playoffs are so called 'the postseason' part of the NBA season. After regular season (wich is 82 games for each team) 8 best teams from east and 8 from west advance to next phase. Regular season table determines pairs in the PO. Teams are playing to 4 wins. Winner advance to next round, loser can go fishing ;) </template>
 </category></topic><topic name="western">
 <category>
+	<pattern>*BLAZERS</pattern>
+	<template><srai>BLAZERS</srai></template>
+</category>
+<category>
+	<pattern>*CLIPPERS</pattern>
+	<template><srai>CLIPPERS</srai></template>
+</category>
+<category>
+	<pattern>*GRIZZLIES</pattern>
+	<template><srai>GRIZZLIES</srai></template>
+</category>
+<category>
+	<pattern>*JAZZ</pattern>
+	<template><srai>JAZZ</srai></template>
+</category>
+<category>
+	<pattern>*ROCKETS</pattern>
+	<template><srai>ROCKETS</srai></template>
+</category>
+<category>
+	<pattern>*SPURS</pattern>
+	<template><srai>SPURS</srai></template>
+</category>
+<category>
+	<pattern>*THUNDER</pattern>
+	<template><srai>THUNDER</srai></template>
+</category>
+<category>
+	<pattern>*WARRIORS</pattern>
+	<template><srai>WARRIORS</srai></template>
+</category>
+<category>
+	<pattern>ABOUT</pattern>
+	<template><condition name="teamA" exists="false">What team do you choose?</condition><condition name="teamA" exists="true"><li value="warriors">Warriors are huge championship contender. They have aquire Kevin Durant from OKC before the season. They finished first with 67-15 record. </li><li value="spurs">Spurs with coach Popovich are a contender every year. They have strong team with Kawhi Leonard and LaMarcus Aldridge in front. They finished second and achieved 61 wins.</li><li value="rockets">Rockets led by James Harden finished with 55-27 record at 3rd spot.</li><li value="clippers">Clippers are second team from LA. With Paul-Griffin-Jordan trio their expectetions are really high every year, but they have never advanced event to the conference finals (with injuries and other issues). This year they achieved 4th spot winning 51 of 82 games.</li><li value="jazz">Jazzmen have big pottential. They were 5th with 51 wins being a little supprise.</li><li value="grizzlies">Team from Memphis end up at 7 winning 43 games. </li><li value="thunder">OKC led by Russel Westbrook (who broke the record for the most triple-doubles in a season) are not considered as a real contender. Despite strong addition with Taj Gibson and Doug McDermoth from the Bulls, they have lack of support from the bench. Regular season record 47-35 gave them no. 6 seed in the west.</li><li value="blazers">Blazers with 50% wins was the last team which advanced to the playoffs in the west.</li><li exists="false"><srai>ABOUT</srai></li>
+			<li>noone. They are not in the playoffs.</li></condition></template>
+</category>
+<category>
+	<pattern>BLAZERS</pattern>
+	<template><think><set name="teamA">blazers</set></think><formal><get name="teamA" /></formal> it is</template>
+</category>
+<category>
+	<pattern>CLIPPERS</pattern>
+	<template><think><set name="teamA">clippers</set></think><formal><get name="teamA" /></formal> it is</template>
+</category>
+<category>
+	<pattern>GRIZZLIES</pattern>
+	<template><think><set name="teamA">grizzlies</set></think><formal><get name="teamA" /></formal> it is</template>
+</category>
+<category>
+	<pattern>JAZZ</pattern>
+	<template><think><set name="teamA">jazz</set></think><formal><get name="teamA" /></formal> it is</template>
+</category>
+<category>
+	<pattern>OPPONENTS</pattern>
+	<template><condition name="teamA" exists="true"><formal><get name="teamA" /></formal> played with:<br /></condition><condition name="teamA"><li value="warriors">Portland Trail Blazers,<br />Utah Jazz,<br />San Antonio Spurs</li><li value="spurs">Memphis Grizzlies,<br />Houston Rockets,<br />Golden State Warriors</li><li value="rockets">Oklahoma City Thunder,<br />San Antonio Spurs</li><li value="clippers">Utah Jazz</li><li value="jazz">Los Angeles Clippers,<br />Golden State Warriors</li><li value="grizzlies">San Antonio Spurs</li><li value="thunder">Houston Rockets</li><li value="blazers">Golden State Warriors</li><li exists="false"><srai>ABOUT</srai></li>
+			<li>noone. They are not in the playoffs.</li></condition></template>
+</category>
+<category>
+	<pattern>ROCKETS</pattern>
+	<template><think><set name="teamA">rockets</set></think><formal><get name="teamA" /></formal> it is</template>
+</category>
+<category>
+	<pattern>SPURS</pattern>
+	<template><think><set name="teamA">spurs</set></think><formal><get name="teamA" /></formal> it is</template>
+</category>
+<category>
 	<pattern>TEAMS</pattern>
 	<template>Golden State Warriors, San Antonio Spurs, Houston Rockets, Los Angeles Clippers, Utah Jazz, Oklahoma City Thunder, Memphis Grizzlies, Portlant Trail Blazers</template>
+</category>
+<category>
+	<pattern>THUNDER</pattern>
+	<template><think><set name="teamA">thunder</set></think><formal><get name="teamA" /></formal> it is</template>
+</category>
+<category>
+	<pattern>WARRIORS</pattern>
+	<template><think><set name="teamA">warriors</set></think><formal><get name="teamA" /></formal> it is</template>
+</category>
+<category>
+	<pattern>* THEIR OPPONENTS</pattern>
+	<template><srai>OPPONENTS</srai></template>
+</category>
+<category>
+	<pattern>WHO THEY PLAY WITH</pattern>
+	<template><srai>OPPONENTS</srai></template>
+</category>
+<category>
+	<pattern>WHO PLAYS IN *</pattern>
+	<template><srai>TEAMS</srai></template>
+</category>
+<category>
+	<pattern>THEIR RESULT WITH *</pattern>
+	<template><think><set name="teamB"><star /></set></think><condition name="teamA"><li value="blazers"><condition name="teamB"><li contains="warriors">They were fighting tough but lost 0:4.</li>
+			<li><srai>NO GAME</srai></li></condition></li><li value="spurs"><condition name="teamB"><li contains="grizzlies">San Antonio won 4:2</li><li contains="rockets">San Antonio defeated Houston 4:2 despite losing Tony Parker with leg injury.</li><li contains="warriors">After huge lead during game one and Leonard's ankle injury, Spurs have no answer for Golden State. 0:4 for the Warriors.</li>
+			<li><srai>NO GAME</srai></li></condition></li><li value="warriors"><condition name="teamB"><li contains="blazers">Golden State started playoffs with 4:0 sweep over Portland.</li><li contains="jazz">After good round one, Jazz couldn't defend warriors. 4:0 sweep.</li><li contains="spurs">With 4:0 win over Spurs, Warriors achieved western conf. championship.</li>
+			<li><srai>NO GAME</srai></li></condition></li><li value="rockets"><condition name="teamB"><li contains="thunder">Houston let OKC win only one game. Result - 4:1</li><li contains="spurs">Rockets lost 2:4.</li>
+			<li><srai>NO GAME</srai></li></condition></li><li value="jazz"><condition name="teamB"><li contains="clippers">Utah advanced to the second round with 4:3 win.</li><li contains="warriors">Totally swept by GSW, 0:4.</li>
+			<li><srai>NO GAME</srai></li></condition></li><li value="clippers"><condition name="teamB"><li contains="jazz">After emotional seven games series, LAC lost 3:4.</li>
+			<li><srai>NO GAME</srai></li></condition></li><li value="bucks"><condition name="teamB"><li contains="raptors">Full of potential bucks lost to Toronto 2:4.</li>
+			<li><srai>NO GAME</srai></li></condition></li><li value="thunder"><condition name="teamB"><li contains="rockets">They stole only one game. Lost 1:4.</li></condition></li>
+			<li>noone. They are not in the playoffs.</li></condition></template>
+</category>
+<category>
+	<pattern>NO GAME</pattern>
+	<template>
+		<random>
+			<li>They didn't play with each other.</li>
+			<li>There was no game like that.</li>
+		</random></template>
 </category></topic><topic name="eastern">
 <category>
 	<pattern>* BUCKS</pattern>
@@ -204,9 +311,10 @@
 			<li>Are you mocking me?</li>
 			<li>You have already did this.</li>
 			<li>I have already said 'Hi'.</li>
-		</random></li><li exists="false"><think><set name="greetings">true</set></think>
+		</random></li>
+			<li><think><set name="greetings">true</set></think>
 		<random>
-			<li>Greetings! </li>
+			<li>Greetings!</li>
 			<li>Hi. I'm Botgdan. </li> 
 			<li>Hello. </li> 
 			<li>What's up? I'm Botgdan, an NBA maniac. </li> 
