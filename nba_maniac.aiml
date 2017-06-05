@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="ISO-8859-15"?>
 
 
+
 <aiml>
 <!--author: Filson-->
 <!--licence: Standard-->
 <!--created with: GaitoBot AIML Editor V2.10.0.42867--><topic name="playoffs">
 <category>
-	<pattern>EAST</pattern><that>What conference are you interested in?</that>
+	<pattern>EAST</pattern><that>*What conference are you interested in?</that>
 	<template><srai>TELL ME ABOUT THE EAST</srai></template>
 </category>
 <category>
-	<pattern>EASTERN</pattern><that>What conference are you interested in?</that>
+	<pattern>EASTERN</pattern>
 	<template><srai>EAST</srai></template>
 </category>
 <category>
@@ -41,20 +42,140 @@
 </category>
 <category>
 	<pattern>WHO PLAYS IN THE PLAYOFFS</pattern>
-	<template><condition name="conference"><li exists="false">What conference are you interested in?<think><set name="teamsQuestion">true</set></think></li><li value="western">Golden State Warriors, San Antonio Spurs, Houston Rockets, Los Angeles Clippers, Utah Jazz, Oklahoma City Thunder, Memphis Grizzlies, Portlant Trail Blazers</li><li value="eastern">Boston Celtics, Cleveland Cavaliers, Toronto Raptors, Washington Wizzards, Atlanta Hawks, Millwauke Bucks, Indiana Pacers, Chicago Bulls</li></condition></template>
+	<template><condition name="conference"><li exists="false">16 teams advance to the playofss. 8 best from the eastern conference and 8 best from the western. What conference are you interested in?<think><set name="teamsQuestion">true</set></think></li><li value="western">Golden State Warriors, San Antonio Spurs, Houston Rockets, Los Angeles Clippers, Utah Jazz, Oklahoma City Thunder, Memphis Grizzlies, Portlant Trail Blazers</li><li value="eastern">Boston Celtics, Cleveland Cavaliers, Toronto Raptors, Washington Wizzards, Atlanta Hawks, Millwauke Bucks, Indiana Pacers, Chicago Bulls</li></condition></template>
+</category>
+<category>
+	<pattern>WHAT IS IT</pattern>
+	<template>Playoffs are so called 'the postseason' part of the NBA season. After regular season (wich is 82 games for each team) 8 best teams from east and 8 from west advance to next phase. Regular season table determines pairs in the PO. Teams are playing to 4 wins. Winner advance to next round, loser can go fishing ;) </template>
 </category></topic><topic name="western">
 <category>
 	<pattern>TEAMS</pattern>
 	<template>Golden State Warriors, San Antonio Spurs, Houston Rockets, Los Angeles Clippers, Utah Jazz, Oklahoma City Thunder, Memphis Grizzlies, Portlant Trail Blazers</template>
 </category></topic><topic name="eastern">
 <category>
+	<pattern>* BUCKS</pattern>
+	<template><srai>BUCKS</srai></template>
+</category>
+<category>
+	<pattern>* BULLS</pattern>
+	<template><srai>BULLS</srai></template>
+</category>
+<category>
+	<pattern>* CAVALIERS</pattern>
+	<template><srai>CAVALIERS</srai></template>
+</category>
+<category>
+	<pattern>* CELTICS</pattern>
+	<template><srai>CELTICS</srai></template>
+</category>
+<category>
+	<pattern>* HAWKS</pattern>
+	<template><srai>HAWKS</srai></template>
+</category>
+<category>
+	<pattern>* PACERS</pattern>
+	<template><srai>PACERS</srai></template>
+</category>
+<category>
+	<pattern>* RAPTORS</pattern>
+	<template><srai>RAPTORS</srai></template>
+</category>
+<category>
+	<pattern>* THEIR OPPONENTS</pattern>
+	<template><srai>OPPONENTS</srai></template>
+</category>
+<category>
+	<pattern>_ THEIR RESULT WITH *</pattern>
+	<template><srai>THEIR RESULT WITH <star /></srai></template>
+</category>
+<category>
+	<pattern>* WIZARDS</pattern>
+	<template><srai>WIZARDS</srai></template>
+</category>
+<category>
+	<pattern>ABOUT</pattern>
+	<template><condition name="teamA" exists="false">What team do you choose?</condition><condition name="teamA" exists="true"><li value="bulls">Bulls are playing in United Center. They have won 41 out of 82 games this regular season and took the last (8th) seed for the playoffs.</li><li value="celtics">Boston's arena is called TD Garden. Their regular season record was 53 - 29 and they were number one in the east.</li><li value="cavs">Cavs are defending champions. They are playing in Quicken Loans Arena and finished the season with 51-31 record. Now, they are fighting with Golden State Warriors in the finals.</li><li value="raptors">Raptors are the only one team based outside of the U.S.A. Their record was 51-31 and achieved a 3rd spot in the east.</li><li value="wizards">Wizards plays in Verizon Center. They have the only Polish guy in the roster - Marcin Gortat. They were 4th.</li><li value="hawks">Atlanta took the spot number five. Their home is Philips Arena. They have won 43 of 82 games this regular season.</li><li value="bucks">Bucks are quite young team with great pottential. They have won 42 games and achieved spot number 6.</li><li value="pacers">Pacers fougth till the last call for the 7-8 spots with Bulls and Heat. Eventually they have achieved no.7.</li>
+			<li>noone. They are not in the playoffs.</li></condition></template>
+</category>
+<category>
+	<pattern>BUCKS</pattern>
+	<template><think><set name="teamA">bucks</set></think><formal><get name="teamA" /></formal> it is</template>
+</category>
+<category>
+	<pattern>BULLS</pattern>
+	<template><think><set name="teamA">bulls</set></think><formal><get name="teamA" /></formal> it is</template>
+</category>
+<category>
+	<pattern>CAVALIERS</pattern>
+	<template><think><set name="teamA">cavs</set></think><formal><get name="teamA" /></formal> it is</template>
+</category>
+<category>
+	<pattern>CELTICS</pattern>
+	<template><think><set name="teamA">celtics</set></think><formal><get name="teamA" /></formal> it is</template>
+</category>
+<category>
+	<pattern>HAWKS</pattern>
+	<template><think><set name="teamA">hawks</set></think><formal><get name="teamA" /></formal> it is</template>
+</category>
+<category>
+	<pattern>NO GAME</pattern>
+	<template>
+		<random>
+			<li>They didn't play with each other.</li>
+			<li>There was no game like that.</li>
+		</random></template>
+</category>
+<category>
+	<pattern>OPPONENTS</pattern>
+	<template><condition name="teamA" exists="true"><formal><get name="teamA" /></formal> played with:<br /></condition><condition name="teamA"><li value="bulls">Boston Celtics</li><li value="celtics">Chicago Bulls,<br />Washington Wizards,<br />Cleveland Cavaliers</li><li value="cavs">Indiana Pacers,<br />Toronto Raptors,<br />Boston Celtics</li><li value="raptors">Milwaukee Bucks,<br />Cleveland Cavaliers</li><li value="wizards">Atlanta Hawks,<br />Boston Celtics</li><li value="hawks">Washington Wizards</li><li value="bucks">Toronto Raptors</li><li value="pacers">Cleveland Cavaliers</li><li exists="false"><srai>ABOUT</srai></li>
+			<li>noone. They are not in the playoffs.</li></condition></template>
+</category>
+<category>
+	<pattern>PACERS</pattern>
+	<template><think><set name="teamA">pacers</set></think><formal><get name="teamA" /></formal> it is</template>
+</category>
+<category>
+	<pattern>RAPTORS</pattern>
+	<template><think><set name="teamA">raptors</set></think><formal><get name="teamA" /></formal> it is</template>
+</category>
+<category>
 	<pattern>TEAMS</pattern>
 	<template>Boston Celtics, Cleveland Cavaliers, Toronto Raptors, Washington Wizzards, Atlanta Hawks, Millwauke Bucks, Indiana Pacers, Chicago Bulls</template>
 </category>
 <category>
+	<pattern>THEIR RESULT WITH *</pattern>
+	<template><think><set name="teamB"><star /></set></think><condition name="teamA"><li value="bulls"><condition name="teamB"><li contains="celtics">After two Bulls' wins and Rajon Rondo's injury, The C's have won 4:2 and advanced to the second round.</li>
+			<li><srai>NO GAME</srai></li></condition></li><li value="celtics"><condition name="teamB"><li contains="bulls">Despite serious Isaiah Thomas' family issue and two games deficit, Celtics won the round 4:2.</li><li contains="wizards">In tought series, Celtics have defeated Washington in game seven, 4:3.</li><li contains="cav">Defending champs continued their road to the finals and won 4:1. Celtics are the only team which stole the game from cavs in the east.</li>
+			<li><srai>NO GAME</srai></li></condition></li><li value="cavs"><condition name="teamB"><li contains="pacers">Cleveland started playoffs with 4:0 sweep. But game one was really close.</li><li contains="raptors">Raptors couldn't defend the champs and get 0:4 sweep.</li><li contains="celtics">Cavs became eastern conference champions with only one game lost. 4:1 for Cleveland.</li>
+			<li><srai>NO GAME</srai></li></condition></li><li value="raptors"><condition name="teamB"><li contains="bucks">Raptors won 4:2 in the first round.</li><li contains="cav">Raptors get swept by the defending champions 0:4.</li>
+			<li><srai>NO GAME</srai></li></condition></li><li value="wizards"><condition name="teamB"><li contains="hawks">Wizards won with 4:2.</li><li contains="celtics">After 7 game series, wizards (with Marcin Gortat onboard) lost 3:4.</li>
+			<li><srai>NO GAME</srai></li></condition></li><li value="hawks"><condition name="teamB"><li contains="wizards">Hawks lost to wizards 2:4.</li>
+			<li><srai>NO GAME</srai></li></condition></li><li value="bucks"><condition name="teamB"><li contains="raptors">Full of potential bucks lost to Toronto 2:4.</li>
+			<li><srai>NO GAME</srai></li></condition></li><li value="pacers"><condition name="teamB"><li contains="cav">After close game one, they couldn't stop Cleveland. Sweep, 0:4.</li></condition></li>
+			<li>noone. They are not in the playoffs.</li></condition></template>
+</category>
+<category>
 	<pattern>WHO PLAYS IN *</pattern>
 	<template><srai>TEAMS</srai></template>
+</category>
+<category>
+	<pattern>WHO THEY PLAY WITH</pattern>
+	<template><srai>OPPONENTS</srai></template>
+</category>
+<category>
+	<pattern>WIZARDS</pattern>
+	<template><think><set name="teamA">wizards</set></think><formal><get name="teamA" /></formal> it is</template>
 </category></topic>
+<category>
+	<pattern>*</pattern>
+	<template>
+		<random>
+			<li>Maybe you say something different?</li>
+			<li>I don't understand...</li>
+			<li>I can not 'hear' you ;)</li>
+			<li>I'm still learning. Try something else.</li>
+		</random></template>
+</category>
 <category>
 	<pattern>* ABOUT EAST</pattern>
 	<template><srai>EAST</srai></template>
@@ -62,6 +183,10 @@
 <category>
 	<pattern>* ABOUT WEST</pattern>
 	<template><srai>WEST</srai></template>
+</category>
+<category>
+	<pattern>*TALK ABOUT PLAYOFFS</pattern>
+	<template><srai>PLAYOFFS</srai></template>
 </category>
 <category>
 	<pattern>ABOUT YOU</pattern>
@@ -73,20 +198,20 @@
 </category>
 <category>
 	<pattern>GREETINGS</pattern>
-	<template><condition name="greetings"><li exists="true">
+	<template><condition name="greetings"><li value="true">
 		<random>
 			<li>We greeted once already.</li>
 			<li>Are you mocking me?</li>
 			<li>You have already did this.</li>
 			<li>I have already said 'Hi'.</li>
-		</random></li><li exists="false">
+		</random></li><li exists="false"><think><set name="greetings">true</set></think>
 		<random>
 			<li>Greetings! </li>
 			<li>Hi. I'm Botgdan. </li> 
 			<li>Hello. </li> 
 			<li>What's up? I'm Botgdan, an NBA maniac. </li> 
 			<li>Good day. </li>
-		</random><think><set name="greetings">true</set></think></li></condition></template>
+		</random></li></condition></template>
 </category>
 <category>
 	<pattern>HELLO</pattern>
@@ -125,5 +250,9 @@
 		<random>
 			<li>Great. Let's do this.</li>
 		</random><think><set name="topic">playoffs</set></think></template>
+</category>
+<category>
+	<pattern>* ABOUT PLAYOFFS</pattern>
+	<template><srai>PLAYOFFS</srai></template>
 </category>
 </aiml>
