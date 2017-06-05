@@ -58,35 +58,43 @@
 	<template><srai>TELL ME ABOUT THE EAST</srai></template>
 </category></topic><topic name="western">
 <category>
-	<pattern>*BLAZERS</pattern>
+	<pattern>* ABOUT TEAMS</pattern>
+	<template><srai>ABOUT</srai></template>
+</category>
+<category>
+	<pattern>* BLAZERS</pattern>
 	<template><srai>BLAZERS</srai></template>
 </category>
 <category>
-	<pattern>*CLIPPERS</pattern>
+	<pattern>* CLIPPERS</pattern>
 	<template><srai>CLIPPERS</srai></template>
 </category>
 <category>
-	<pattern>*GRIZZLIES</pattern>
+	<pattern>* GRIZZLIES</pattern>
 	<template><srai>GRIZZLIES</srai></template>
 </category>
 <category>
-	<pattern>*JAZZ</pattern>
+	<pattern>* JAZZ</pattern>
 	<template><srai>JAZZ</srai></template>
 </category>
 <category>
-	<pattern>*ROCKETS</pattern>
+	<pattern>* ROCKETS</pattern>
 	<template><srai>ROCKETS</srai></template>
 </category>
 <category>
-	<pattern>*SPURS</pattern>
+	<pattern>* SPURS</pattern>
 	<template><srai>SPURS</srai></template>
 </category>
 <category>
-	<pattern>*THUNDER</pattern>
+	<pattern>* THEIR OPPONENTS</pattern>
+	<template><srai>OPPONENTS</srai></template>
+</category>
+<category>
+	<pattern>* THUNDER</pattern>
 	<template><srai>THUNDER</srai></template>
 </category>
 <category>
-	<pattern>*WARRIORS</pattern>
+	<pattern>* WARRIORS</pattern>
 	<template><srai>WARRIORS</srai></template>
 </category>
 <category>
@@ -96,56 +104,44 @@
 </category>
 <category>
 	<pattern>BLAZERS</pattern>
-	<template><think><set name="teamA">blazers</set></think><formal><get name="teamA" /></formal> it is</template>
+	<template><think><set name="teamA">blazers</set></think><formal><get name="teamA" /></formal> it is.<br /><srai>ABOUT</srai></template>
 </category>
 <category>
 	<pattern>CLIPPERS</pattern>
-	<template><think><set name="teamA">clippers</set></think><formal><get name="teamA" /></formal> it is</template>
+	<template><think><set name="teamA">clippers</set></think><formal><get name="teamA" /></formal> it is.<br /><srai>ABOUT</srai></template>
 </category>
 <category>
 	<pattern>GRIZZLIES</pattern>
-	<template><think><set name="teamA">grizzlies</set></think><formal><get name="teamA" /></formal> it is</template>
+	<template><think><set name="teamA">grizzlies</set></think><formal><get name="teamA" /></formal> it is.<br /><srai>ABOUT</srai></template>
 </category>
 <category>
 	<pattern>JAZZ</pattern>
-	<template><think><set name="teamA">jazz</set></think><formal><get name="teamA" /></formal> it is</template>
+	<template><think><set name="teamA">jazz</set></think><formal><get name="teamA" /></formal> it is.<br /><srai>ABOUT</srai></template>
+</category>
+<category>
+	<pattern>NO GAME</pattern>
+	<template>
+		<random>
+			<li>They didn't play with each other.</li>
+			<li>There was no game like that.</li>
+		</random></template>
 </category>
 <category>
 	<pattern>OPPONENTS</pattern>
-	<template><condition name="teamA" exists="true"><formal><get name="teamA" /></formal> played with:<br /></condition><condition name="teamA"><li value="warriors">Portland Trail Blazers,<br />Utah Jazz,<br />San Antonio Spurs</li><li value="spurs">Memphis Grizzlies,<br />Houston Rockets,<br />Golden State Warriors</li><li value="rockets">Oklahoma City Thunder,<br />San Antonio Spurs</li><li value="clippers">Utah Jazz</li><li value="jazz">Los Angeles Clippers,<br />Golden State Warriors</li><li value="grizzlies">San Antonio Spurs</li><li value="thunder">Houston Rockets</li><li value="blazers">Golden State Warriors</li><li exists="false"><srai>ABOUT</srai></li>
+	<template><condition name="teamA" exists="true"><formal><get name="teamA" /></formal>  played with:<br /></condition><condition name="teamA"><li value="warriors">Portland Trail Blazers,<br />Utah Jazz,<br />San Antonio Spurs</li><li value="spurs">Memphis Grizzlies,<br />Houston Rockets,<br />Golden State Warriors</li><li value="rockets">Oklahoma City Thunder,<br />San Antonio Spurs</li><li value="clippers">Utah Jazz</li><li value="jazz">Los Angeles Clippers,<br />Golden State Warriors</li><li value="grizzlies">San Antonio Spurs</li><li value="thunder">Houston Rockets</li><li value="blazers">Golden State Warriors</li><li exists="false"><srai>ABOUT</srai></li>
 			<li>noone. They are not in the playoffs.</li></condition></template>
 </category>
 <category>
 	<pattern>ROCKETS</pattern>
-	<template><think><set name="teamA">rockets</set></think><formal><get name="teamA" /></formal> it is</template>
+	<template><think><set name="teamA">rockets</set></think><formal><get name="teamA" /></formal> it is.<br /><srai>ABOUT</srai></template>
 </category>
 <category>
 	<pattern>SPURS</pattern>
-	<template><think><set name="teamA">spurs</set></think><formal><get name="teamA" /></formal> it is</template>
+	<template><think><set name="teamA">spurs</set></think><formal><get name="teamA" /></formal> it is.<br /><srai>ABOUT</srai></template>
 </category>
 <category>
 	<pattern>TEAMS</pattern>
 	<template>Golden State Warriors, San Antonio Spurs, Houston Rockets, Los Angeles Clippers, Utah Jazz, Oklahoma City Thunder, Memphis Grizzlies, Portlant Trail Blazers</template>
-</category>
-<category>
-	<pattern>THUNDER</pattern>
-	<template><think><set name="teamA">thunder</set></think><formal><get name="teamA" /></formal> it is</template>
-</category>
-<category>
-	<pattern>WARRIORS</pattern>
-	<template><think><set name="teamA">warriors</set></think><formal><get name="teamA" /></formal> it is</template>
-</category>
-<category>
-	<pattern>* THEIR OPPONENTS</pattern>
-	<template><srai>OPPONENTS</srai></template>
-</category>
-<category>
-	<pattern>WHO THEY PLAY WITH</pattern>
-	<template><srai>OPPONENTS</srai></template>
-</category>
-<category>
-	<pattern>WHO PLAYS IN *</pattern>
-	<template><srai>TEAMS</srai></template>
 </category>
 <category>
 	<pattern>THEIR RESULT WITH *</pattern>
@@ -160,13 +156,25 @@
 			<li>noone. They are not in the playoffs.</li></condition></template>
 </category>
 <category>
-	<pattern>NO GAME</pattern>
-	<template>
-		<random>
-			<li>They didn't play with each other.</li>
-			<li>There was no game like that.</li>
-		</random></template>
+	<pattern>THUNDER</pattern>
+	<template><think><set name="teamA">thunder</set></think><formal><get name="teamA" /></formal> it is.<br /><srai>ABOUT</srai></template>
+</category>
+<category>
+	<pattern>WARRIORS</pattern>
+	<template><think><set name="teamA">warriors</set></think><formal><get name="teamA" /></formal> it is.<br /><srai>ABOUT</srai></template>
+</category>
+<category>
+	<pattern>WHO PLAYS IN *</pattern>
+	<template><srai>TEAMS</srai></template>
+</category>
+<category>
+	<pattern>WHO THEY PLAY WITH</pattern>
+	<template><srai>OPPONENTS</srai></template>
 </category></topic><topic name="eastern">
+<category>
+	<pattern>* ABOUT TEAMS</pattern>
+	<template><srai>ABOUT</srai></template>
+</category>
 <category>
 	<pattern>* BUCKS</pattern>
 	<template><srai>BUCKS</srai></template>
@@ -200,12 +208,12 @@
 	<template><srai>OPPONENTS</srai></template>
 </category>
 <category>
-	<pattern>_ THEIR RESULT WITH *</pattern>
-	<template><srai>THEIR RESULT WITH <star /></srai></template>
-</category>
-<category>
 	<pattern>* WIZARDS</pattern>
 	<template><srai>WIZARDS</srai></template>
+</category>
+<category>
+	<pattern>_ THEIR RESULT WITH *</pattern>
+	<template><srai>THEIR RESULT WITH <star /></srai></template>
 </category>
 <category>
 	<pattern>ABOUT</pattern>
@@ -214,23 +222,23 @@
 </category>
 <category>
 	<pattern>BUCKS</pattern>
-	<template><think><set name="teamA">bucks</set></think><formal><get name="teamA" /></formal> it is</template>
+	<template><think><set name="teamA">bucks</set></think><formal><get name="teamA" /></formal> it is.<br /><srai>ABOUT</srai></template>
 </category>
 <category>
 	<pattern>BULLS</pattern>
-	<template><think><set name="teamA">bulls</set></think><formal><get name="teamA" /></formal> it is</template>
+	<template><think><set name="teamA">bulls</set></think><formal><get name="teamA" /></formal> it is.<br /><srai>ABOUT</srai></template>
 </category>
 <category>
 	<pattern>CAVALIERS</pattern>
-	<template><think><set name="teamA">cavs</set></think><formal><get name="teamA" /></formal> it is</template>
+	<template><think><set name="teamA">cavs</set></think><formal><get name="teamA" /></formal> it is.<br /><srai>ABOUT</srai></template>
 </category>
 <category>
 	<pattern>CELTICS</pattern>
-	<template><think><set name="teamA">celtics</set></think><formal><get name="teamA" /></formal> it is</template>
+	<template><think><set name="teamA">celtics</set></think><formal><get name="teamA" /></formal> it is.<br /><srai>ABOUT</srai></template>
 </category>
 <category>
 	<pattern>HAWKS</pattern>
-	<template><think><set name="teamA">hawks</set></think><formal><get name="teamA" /></formal> it is</template>
+	<template><think><set name="teamA">hawks</set></think><formal><get name="teamA" /></formal> it is.<br /><srai>ABOUT</srai></template>
 </category>
 <category>
 	<pattern>NO GAME</pattern>
@@ -247,11 +255,11 @@
 </category>
 <category>
 	<pattern>PACERS</pattern>
-	<template><think><set name="teamA">pacers</set></think><formal><get name="teamA" /></formal> it is</template>
+	<template><think><set name="teamA">pacers</set></think><formal><get name="teamA" /></formal> it is.<br /><srai>ABOUT</srai></template>
 </category>
 <category>
 	<pattern>RAPTORS</pattern>
-	<template><think><set name="teamA">raptors</set></think><formal><get name="teamA" /></formal> it is</template>
+	<template><think><set name="teamA">raptors</set></think><formal><get name="teamA" /></formal> it is.<br /><srai>ABOUT</srai></template>
 </category>
 <category>
 	<pattern>TEAMS</pattern>
@@ -279,7 +287,7 @@
 </category>
 <category>
 	<pattern>WIZARDS</pattern>
-	<template><think><set name="teamA">wizards</set></think><formal><get name="teamA" /></formal> it is</template>
+	<template><think><set name="teamA">wizards</set></think><formal><get name="teamA" /></formal> it is.<br /><srai>ABOUT</srai></template>
 </category></topic>
 <category>
 	<pattern>*</pattern>
@@ -429,5 +437,9 @@
 <category>
 	<pattern>I DO</pattern>
 	<template><srai>YES</srai></template>
+</category>
+<category>
+	<pattern>GOOD MORNING</pattern>
+	<template><srai>HELLO</srai></template>
 </category>
 </aiml>
